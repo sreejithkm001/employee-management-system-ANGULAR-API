@@ -1,0 +1,5 @@
+<app-hr-navbar (onToggleSideNav)="onToggleSideNav($event)"></app-hr-navbar>
+<div class="base-body" [ngClass]="getBodyClass()">
+    <router-outlet></router-outlet>
+    <!-- <app-hr-footer></app-hr-footer> -->
+</div>

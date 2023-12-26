@@ -1,0 +1,41 @@
+@import '../../../assets/scss/variables';
+
+.table-div {
+    padding: $spacer-1;
+
+    .thead {
+        color: $color-primary;
+        background-color: $color-contrasting;
+    }
+
+    .table-head {
+        font-size: $font-xl;
+        font-weight: 700;
+        padding: $spacer-2;
+
+        &.left-col {
+            text-align: center;
+        }
+    }
+
+    .table-data {
+        font-size: $font-md;
+
+        font-weight: 400;
+        padding: $spacer-3 $spacer-2 $spacer-0;
+
+        &.left-col {
+            text-align: center;
+        }
+    }
+
+    .data-row {
+        color: $color-white;
+        transition: all 0.2s;
+
+        &:hover {
+            transform: scale(1.05);
+            color: $color-contrasting;
+        }
+    }
+}

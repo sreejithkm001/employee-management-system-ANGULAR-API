@@ -1,0 +1,17 @@
+<div class="confirmation">
+    <h1 mat-dialog-title>Leave Request</h1>
+    <div mat-dialog-content>
+        <p>Type : <strong>{{data.type}}</strong></p>
+        <p>From : <strong>{{data.from}}</strong></p>
+        <p>To : <strong>{{data.to}}</strong></p>
+        <p>No of days : <strong>{{data.noofdays}}</strong></p>
+        <p>Reason : <strong>{{data.reason}}</strong></p>
+    </div>
+    <div mat-dialog-actions>
+        <button class="btn-control" mat-button (click)="respondRequest(data.id,'Approved')"
+            cdkFocusInitial mat-dialog-close>Approve</button>
+        <button class="btn-control" mat-button (click)="respondRequest(data.id,'Rejected')"
+            cdkFocusInitial mat-dialog-close>Reject</button>
+        <button class="btn-control" mat-button mat-dialog-close>Keep Pending</button>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<section class="profile-module">
+    <div class="heading">
+        <p class="heading-text">Profile</p>
+    </div>
+    <div class="container">
+        <div class="base-div">
+            <div class="profile-div">
+                <div class="left-div">
+                    <div class="profile-pic">
+                        <img class="pp-img" src="../../../assets/images/{{userInfo.image}}" alt="">
+                    </div>
+                    <button class="btn btn-pp" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><fa-icon
+                            class="edit-icon" [icon]="faEdit"></fa-icon></button>
+    
+                    <div class="name-div">
+                        <p class="emp-name">{{userInfo.firstname}} {{userInfo.lastname}}</p>
+                        <p class="emp-des">{{userInfo.designation}}</p>
+                        <p class="emp-id">Amigos ID : {{userInfo.empid}}</p>
+                    </div>
+                    <hr class="info-divider">
+                    <div class="contact-div">
+                        <div class="icons-div">
+                            <p class="contact-icons"><fa-icon [icon]="faAt"></fa-icon></p>
+                            <p class="contact-icons"><fa-icon [icon]="faPhoneAlt"></fa-icon></p>
+                        </div>
+                        <div class="info-div">
+                            <p class="contact-info">{{userInfo.email}}</p>
+                            <p class="contact-info">{{userInfo.contact}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-div">
+                    <app-emp-personal-data></app-emp-personal-data>
+                </div>
+            </div>
+            <div class="bottom-div">
+                <div class="null-div"></div>
+                <div class="right-div">
+                    <app-emp-academic-data></app-emp-academic-data>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title fs-5" id="staticBackdropLabel">Edit Profile Picture</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="image">
+                        <img class="pp-img" src="../../../assets/images/{{userInfo.image}}" alt="">
+                    </div>
+                    <div class="file-input">
+                        <input type="file" (change)="setFileName($event)">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-modal" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-modal" (click)="uploadProfilePic()"
+                        data-bs-dismiss="modal">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

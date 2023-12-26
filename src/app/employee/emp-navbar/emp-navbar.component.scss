@@ -1,0 +1,72 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.navbar{
+    background-color: $color-primary;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    // width: 100%;
+    
+    .nav-link{
+        color: $color-white;
+        font-size: $font-md;
+        padding: $spacer-1 $spacer-2;
+
+        &:hover{
+            color: $color-contrasting;
+        }
+    }
+
+    .active{
+        color: $color-contrasting;
+    }
+    .btn-logout{
+        background-color: transparent;
+        color: $color-white;
+        border: none;
+    }
+    .user-div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $color-white
+    }
+        
+    .pic{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        img{
+            width: 150%;
+            margin-left: -25%;
+            margin-top: -5%;
+        }
+    }
+    .name{
+        padding-left: $spacer-1;
+    }
+    button{
+        background-color: transparent;
+        color: $color-white;
+        border: none;
+    }
+    .logout-icon{
+        padding-left: $spacer-1;
+    }
+    
+    .menu-icon{
+        color: $color-primary;
+        font-size: $font-xxl;
+    }
+}
+
+@include tablet{
+    .navbar{
+        .user-div{
+            justify-content: flex-start;
+        }
+    }
+}

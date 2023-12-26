@@ -1,0 +1,249 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.profile-module {
+    padding-bottom: $spacer-4;
+
+    .heading {
+        padding-top: 80px;
+        color: $color-white;
+        text-align: center;
+        background-color: $color-bg;
+        height: 400px;
+    }
+    .heading-text {
+        font-size: $font-heading;
+        font-weight: 300;
+    }
+    .container {
+        
+        padding: $spacer-0 $spacer-3;
+    }
+
+    .base-div{
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        margin-top: -250px;
+        background-color: $color-white;
+    }
+    .profile-div {
+        padding: $spacer-4;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    .left-div {
+        width: 215px;
+        border-radius: 10px;
+        background-color: $color-contrasting;
+        padding: $spacer-1 $spacer-0;
+        color: $color-primary;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        .btn-pp {
+            position: absolute;
+            left: 130px;
+            top: 135px;
+            background-color: $color-white;
+            border-radius: 50%;
+            font-size: $font-sm;
+            padding: $spacer-0;
+            padding-left: 3px;
+            width: 28px;
+            height: 28px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid $color-contrasting;
+        }
+
+        .pp-img {
+            width: 150%;
+            margin-left: -25%;
+        }
+
+        .name-div {
+            padding: $spacer-2 $spacer-0;
+        }
+
+        .emp-name {
+            font-size: $font-xxl;
+            font-weight: 800;
+            padding-bottom: $spacer-1;
+        }
+
+        .emp-des {
+            font-size: $font-md;
+            font-weight: 400;
+            padding-bottom: $spacer-md;
+        }
+
+        .emp-id {
+            font-size: $font-xsm;
+            font-weight: 500;
+        }
+
+        .info-divider {
+            width: 80%;
+            height: 1px;
+            color: $color-primary;
+        }
+
+        .contact-div {
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .contact-icons {
+            padding: $spacer-md;
+            font-size: $font-sm;
+
+            &:hover {
+                color: $color-blue;
+            }
+
+        }
+
+        .info-div {
+            text-align: left;
+        }
+
+        .contact-info {
+            padding: $spacer-md;
+            font-size: $font-sm;
+        }
+    }
+
+    .right-div {
+        width: 70%;
+        border-radius: 10px;
+        border: 1px solid $color-contrasting;
+        padding: $spacer-3;
+        padding-bottom: $spacer-0;
+    }
+
+    .bottom-div {
+        display: flex;
+        justify-content: space-evenly;
+        padding: $spacer-4;
+        padding-top: $spacer-0;
+
+        .null-div {
+            width: 215px;
+        }
+    }
+
+}
+
+.modal {
+    .modal-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .image {
+        width: 180px;
+
+        .pp-img {
+            width: 100%;
+        }
+    }
+
+    .file-input {
+        width: 250px;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    .btn-modal {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-md $spacer-3;
+        border-radius: 25px;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-contrasting;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+}
+
+@include tablet {
+    .profile-module {
+        .profile-div {
+            flex-direction: column;
+        }
+
+        .left-div {
+            width: 100%;
+            height: 215px;
+            padding: $spacer-0 $spacer-2;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            .btn-pp{
+                left: 155px;
+            }
+            .info-divider {
+                display: none;
+            }
+
+            .name-div {
+                padding: $spacer-0 $spacer-2;
+            }
+
+            .contact-div {
+                width: auto;
+            }
+        }
+
+        .right-div {
+            width: 100%;
+            margin-top: $spacer-4;
+        }
+
+        .bottom-div {
+            .null-div {
+                display: none;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .profile-module {
+        .profile-div {
+            padding: $spacer-1;
+        }
+        .left-div{
+            flex-direction: column;
+            height: 100%;
+            padding: $spacer-2 $spacer-0;
+            .name-div {
+                padding: $spacer-2 $spacer-0;
+            }
+            .btn-pp{
+                left: 63%;
+            }
+        }
+        .bottom-div{
+            padding: $spacer-1;
+        }
+    }
+}

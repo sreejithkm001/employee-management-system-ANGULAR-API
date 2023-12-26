@@ -1,0 +1,106 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.content-div{
+    .label-div {
+        padding: 15px;
+        background-color: $color-primary;
+        color: $color-contrasting;
+        width: 40%;
+        font-size: $font-xl;
+        font-weight: 500;
+        text-align: right;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        margin-left: -30px;
+    }
+
+    .academic-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spacer-3 $spacer-0;
+    }
+
+    .input-div {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% /2);
+        padding: $spacer-1;
+    }
+
+    .form-control-label {
+        font-size: $font-sm;
+        font-weight: 400;
+        padding-left: $spacer-1;
+        padding-bottom: $spacer-md;
+    }
+
+    .form-control {
+        color: $color-primary;
+        font-size: $font-sm;
+        font-weight: 600;
+        border: 1px solid red;
+
+        &.ng-untouched, &.ng-valid{
+            border-color: $color-blue;
+        }
+        &:focus{
+            box-shadow: none;
+        }
+
+        &:disabled {
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    .btn-div {
+        padding-top: $spacer-1;
+        padding-left: $spacer-2;
+    }
+
+    .btn-submit {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        border-radius: 25px;
+        padding: $spacer-md $spacer-3;
+        margin-right: $spacer-1;
+
+        &:hover {
+            color: $color-contrasting;
+            background-color: $color-primary;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+
+    .btn-edit {
+        font-size: $font-sm;
+        color: $color-primary;
+        float: right;
+
+        &:hover {
+            color: $color-blue;
+        }
+
+        &:focus {
+            border: none;
+        }
+    }
+}
+
+@include mobile{
+    .content-div{
+        .label-div{
+            width: 80%;
+        }
+        .input-div{
+            width: 100%;
+        }
+        .btn-submit{
+            margin-top: $spacer-1;
+        }
+    }
+}

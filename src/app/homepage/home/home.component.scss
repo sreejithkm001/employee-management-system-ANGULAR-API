@@ -1,0 +1,42 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.home-module {
+    height: 100vh;
+    background-color: $color-primary;
+    color: $color-lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .info {
+        padding: $spacer-4;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-col {
+        text-align: center;
+        
+    }
+
+    .logo-img {
+        width: 200px;
+    }
+
+    .text-col {
+        border-left: 1px solid #fff2;
+        padding-left: $spacer-6;
+        letter-spacing: 1px;
+    }
+
+}
+
+@include tablet{
+    .home-module{
+        .logo-col{
+            text-align: left;
+            padding: $spacer-4 $spacer-0;
+        }
+    }
+}

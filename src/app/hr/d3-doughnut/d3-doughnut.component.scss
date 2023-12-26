@@ -1,0 +1,15 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.heading {
+    font-size: $font-md;
+    font-weight: 500;
+    text-align: left;
+    color: $color-white;
+}
+.base{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

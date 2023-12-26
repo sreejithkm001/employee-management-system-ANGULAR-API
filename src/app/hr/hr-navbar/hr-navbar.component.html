@@ -1,0 +1,38 @@
+<div class="sidenav" [ngClass]="collapsed?'':'sidenav-collapsed'">
+    <div class="logo-container">
+        <button class="logo" *ngIf="!collapsed" (click)="toggleCollapse()"><img class="log-img"
+                src="https://beinex.com/images/recruitment-process-bnx-logo.svg" alt=""></button>
+        <button class="logo" *ngIf="collapsed" (click)="toggleCollapse()"><img class="log-img"
+                src="../../../assets/images/Group (5).svg" alt=""></button>
+        <button class="btn-close btn-close-white" (click)="closeSideNav()" *ngIf="collapsed"></button>
+    </div>
+    <div class="divider"></div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a class="sidenav-nav-link" [routerLink]="[data.routerLink]" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">
+                <fa-icon class="sidenav-link-icon" [icon]="data.icon"></fa-icon>
+                <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+    <div class="user-div">
+        <div class="pic" *ngIf="!collapsed" mat-icon-button [matMenuTriggerFor]="menu">
+            <img class="pp" src="../../../assets/images/{{userInfo.image}}" alt="">
+        </div>
+        <ng-container *ngIf="collapsed">
+            <div class="pic">
+                <img class="pp" src="../../../assets/images/{{userInfo.image}}" alt="">
+            </div>
+            <button class="menu-btn" mat-icon-button [matMenuTriggerFor]="menu">
+                {{userInfo.firstname}} {{userInfo.lastname}}<fa-icon class="logout-icon" [icon]="faAngleDown"></fa-icon>
+            </button>
+        </ng-container>
+        <mat-menu #menu="matMenu" xPosition="after" [overlapTrigger]="false">
+            <button mat-menu-item (click)="logout()">
+                <fa-icon class="pe-4 py-0" [icon]="faSignOutAlt"></fa-icon>
+                <span class="logout-content pe-3 py-0">Logout</span>
+            </button>
+        </mat-menu>
+    </div>
+</div>

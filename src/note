@@ -1,0 +1,345 @@
+html----------------
+
+<section class="home-module">
+    <div class="container">
+        <div class="home-body">
+            <div class="left-div">
+                <div class="image-div" style="background-image: url(../../../assets/images/{{userInfo.image}});">
+                    <!-- <img class="profile-pic" src="../../../assets/images/1.jpg" alt=""> -->
+                </div>
+                <div class="name-div">
+                    <p class="emp-name">{{userInfo.firstname}} {{userInfo.lastname}}</p>
+                    <p class="emp-des">{{userInfo.designation}}</p>
+                    <p class="emp-id">Amigos ID : AMG-00{{userInfo.id}}</p>
+                </div>
+                <hr class="info-divider">
+                <div class="contact-div">
+                    <div class="icons-div">
+                        <p class="contact-icons"><fa-icon [icon]="faAt"></fa-icon></p>
+                        <p class="contact-icons"><fa-icon [icon]="faPhoneAlt"></fa-icon></p>
+                    </div>
+                    <div class="info-div">
+                        <p class="contact-info">{{userInfo.email}}</p>
+                        <p class="contact-info">{{userInfo.contact}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-div">
+
+                <mat-tab-group>
+                    <mat-tab label="Personal Details">
+                        <div class="personal-info" id="personal">
+                            <button class="btn btn-edit" (click)="editDetails()">Edit <fa-icon class="edit-icon" [icon]="faEdit"></fa-icon></button>
+                            <form class="personal-form" [formGroup]="personalDataForm">
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">First name</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.firstname}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Last name</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.lastname}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Blood group</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.bloodgroup}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Email</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.email}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Contact Number</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.contact}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Age</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.age}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Date of Birth</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.dob}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Gender</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.gender}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Facebook Profile</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.fb}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Instagram Profile</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.insta}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">LinkedIn Profile</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.linkedin}}>
+                                </div>
+                            </form>
+                        </div>
+    
+                    </mat-tab>
+                    <mat-tab label="Academic Details">
+                        <div class="academic-info">
+                            <form class="personal-form">
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Educational Qualification</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.qualification}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Course / Subject</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.course}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">University</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.university}}>
+                                </div>
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Percentage</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.percentage}}>
+                                </div>
+                            </form>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Files">
+                        <div class="files-info">
+                            <div class="p-p">
+                                <img src="../../../assets/images/{{userInfo.image}}" alt="">
+                            </div>
+                            <form class="personal-form">
+                                <div class="input-div">
+                                    <label for="firstname" class="form-control-label">Percentage</label>
+                                    <input type="text" class="form-control" name="firstname" value={{userInfo.percentage}}>
+                                </div>
+                            </form>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Leave Details">
+                        <div class="leave-info">
+                            <div *ngFor="let leave of userInfo.leavedetails">
+                                <p>Type : {{leave.type}}</p>
+                                <p>From : {{leave.from}}</p>
+                                <p>To : {{leave.to}}</p>
+                                <p>No of days : {{leave.noofdays}}</p>
+                                <p>Status : {{leave.status}}</p>
+                            </div>
+                        </div>
+                    </mat-tab>
+                  </mat-tab-group>
+
+                <!-- <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab1" aria-current="page" href="#personal">Personal
+                            Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab2" href="#academic">Academic Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab3" href="#files">Files</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="personal-info" id="personal">
+                        <form class="personal-form">
+                            <div class="input-div">
+                                <label for="firstname" class="form-control-label">First name</label>
+                                <input type="text" class="form-control" name="firstname" value={{userInfo.firstname}}>
+                            </div>
+                            <div class="input-div">
+                                <label for="firstname" class="form-control-label">Last name</label>
+                                <input type="text" class="form-control" name="firstname" value={{userInfo.lastname}}>
+                            </div>
+                            <div class="input-div">
+                                <label for="firstname" class="form-control-label">Email</label>
+                                <input type="text" class="form-control" name="firstname" value={{userInfo.email}}>
+                            </div>
+                            <div class="input-div">
+                                <label for="firstname" class="form-control-label">First name</label>
+                                <input type="text" class="form-control" name="firstname" value={{userInfo.firstname}}>
+                            </div>
+                            <div class="input-div">
+                                <label for="firstname" class="form-control-label">First name</label>
+                                <input type="text" class="form-control" name="firstname" value={{userInfo.firstname}}>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade academic-info" id="academic" role="tabpanel" aria-labelledby="tab2">
+                        <p>Academic</p>
+                    </div>
+
+                    <div class="tab-pane fade files-info" id="files" role="tabpanel" aria-labelledby="tab3">
+                        <p>Files</p>
+                    </div> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+SCSS---------------------
+
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/base';
+
+.home-module {
+    // background-color: $color-primary;
+    height: calc(100vh - 65px);
+    padding-top: $spacer-3;
+
+    .home-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left-div {
+        background-color: $color-contrasting;
+        width: 25%;
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: $color-primary;
+        border-radius: 25px;
+    }
+
+    .right-div {
+        border: 1px solid $color-text;
+        width: 70%;
+        height: 500px;
+        color: $color-text;
+        border-radius: 25px;
+        // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        // padding: $spacer-0 $spacer-2;
+        padding-top: $spacer-3;
+    }
+
+    .image-div {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        background-image: url('../../../assets/images/1.jpg');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .name-div {
+        padding: $spacer-2 $spacer-0;
+    }
+
+    .emp-name {
+        font-size: $font-xl;
+        font-weight: 600;
+        padding-bottom: $spacer-1;
+    }
+
+    .emp-des {
+        font-size: $font-md;
+        font-weight: 400;
+    }
+
+    .emp-id {
+        font-size: $font-xsm;
+        font-weight: 500;
+    }
+
+    .info-divider {
+        width: 80%;
+        height: 1px;
+        color: $color-primary;
+    }
+
+    .contact-div {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .contact-icons {
+        padding: $spacer-md;
+        font-size: $font-sm;
+
+        &:hover {
+            color: $color-blue;
+        }
+
+    }
+
+    .info-div {
+        text-align: left;
+    }
+
+    .contact-info {
+        padding: $spacer-md;
+        font-size: $font-sm;
+    }
+    
+    .personal-form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spacer-3 $spacer-6;
+    }
+    .input-div{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        padding: $spacer-1;
+    }
+    .form-control-label{
+        font-size: $font-sm;
+        font-weight: 400;
+        padding: $spacer-0 $spacer-1;
+    }
+    .form-control{
+        
+        color: $color-primary;
+        border: none;
+        font-size: $font-xl;
+        font-weight: 600;
+
+        &:disabled{
+background-color: transparent;
+        }
+    }
+    .btn-edit{
+        font-size: $font-sm;
+        color: $color-primary;
+        float: right;
+
+        &:hover{
+            color: $color-blue;
+        }
+    }
+}
+
+
+TS-----------------
+
+public personalDataForm!: FormGroup;
+this.personalDataForm = this._fb.group({
+  firstname: ['', Validators.required],
+  lastname: ['', Validators.required],
+  age: ['', Validators.required],
+  dob: ['', Validators.required],
+  bloodgroup: ['select', Validators.required],
+  email: ['', Validators.required],
+  gender: ['male', Validators.required],
+  contact: ['', Validators.required],
+  address: ['', Validators.required],
+  fbid: ['', Validators.required],
+  instaid: ['', Validators.required],
+  linkedinid: ['', Validators.required]
+})
+editDetails() {
+
+}

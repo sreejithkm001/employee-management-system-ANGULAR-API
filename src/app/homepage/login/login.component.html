@@ -1,0 +1,18 @@
+<!-- REACTIVE FORMS USED -->
+<div class="login-module">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="input-div">
+            <input type="text" pattern="^[a-zA-Z\s\.]*$" name="username" formControlName="username" placeholder="Username" class="form-control">
+            <small class="warning-message" *ngIf="this.loginForm.get('username')?.touched && this.loginForm.get('username')?.invalid">Please enter a valid username</small>
+        </div>
+        <div class="input-div password-div">
+            <input [type]="showPassword?'text':'password'" minlength="3" name="password" formControlName="password" placeholder="Password" class="form-control">
+            <i class="fa-regular icon-password" [ngClass]="showPassword?'fa-eye':'fa-eye-slash'" (click)="passwordVisibility()"></i>
+            <small class="warning-message" *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.invalid">Please enter a valid password</small>
+        </div>
+        <div class="btn-div">
+            <button class="btn btn-login">Login <i class="fa-solid fa-unlock-keyhole fa-lg btn-icon"></i></button>
+            <a class="forgot-password" routerLink="/resetpassword">Forgot your password?</a>
+        </div>
+    </form>
+</div>

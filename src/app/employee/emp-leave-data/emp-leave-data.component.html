@@ -1,0 +1,22 @@
+<div class="content-div">
+    <div class="label-div">
+        <p>Leave Information</p>
+    </div>
+    <div class="row leave-info">
+        <div class="no-leave" *ngIf="userInfo.length==0">
+            <p>No leave records found!</p>
+        </div>
+        <div class="col leave-block" *ngFor="let leave of userInfo">
+            <div class="card h-100">
+                <div class="card-body">
+                    <p class="card-title">{{leave.type}} Leave</p>
+                    <p class="card-text">From :<strong> {{leave.from}}</strong></p>
+                    <p class="card-text">To :<strong> {{leave.to}}</strong></p>
+                    <p class="card-text">No of days :<strong> {{leave.noofdays}}</strong></p>
+                    <p class="card-text">Reason for leave :<strong> {{leave.reason}}</strong></p>
+                    <p class="card-text">Status :<strong> {{leave.status}}</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

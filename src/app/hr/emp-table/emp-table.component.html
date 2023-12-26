@@ -1,0 +1,20 @@
+<div class="table-div  table-responsive-lg">
+  <table class="table table-borderless">
+    <thead class="thead">
+      <tr>
+        <th class="table-head left-col" scope="col">Beinex ID</th>
+        <th class="table-head" scope="col">Name</th>
+        <th class="table-head" scope="col">Department</th>
+        <th class="table-head" scope="col">Designation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="data-row" *ngFor="let employee of employeeList">
+        <td class="table-data left-col">{{employee.empid}}</td>
+        <td class="table-data">{{employee.firstname}} {{employee.lastname}}</td>
+        <td class="table-data">{{employee.department}}</td>
+        <td class="table-data">{{employee.designation}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

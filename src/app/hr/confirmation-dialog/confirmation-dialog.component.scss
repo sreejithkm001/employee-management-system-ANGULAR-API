@@ -1,0 +1,24 @@
+@import '../../../assets/scss/variables';
+
+.confirmation {
+    color: $color-primary;
+
+    .mat-dialog-title {
+        font-size: $font-xl;
+        font-weight: 600;
+    }
+
+    .btn-control {
+        background-color: $color-contrasting;
+        padding: $spacer-md $spacer-3;
+        border-radius: 25px;
+        border: none;
+        margin-right: $spacer-2;
+
+        &:hover{
+            background-color: $color-primary;
+            color: $color-contrasting;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+}

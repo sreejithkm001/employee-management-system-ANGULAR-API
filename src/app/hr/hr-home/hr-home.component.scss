@@ -1,0 +1,208 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+
+.dashboard-module {
+    background-color: $color-bg;
+    letter-spacing: 1px;
+    padding: $spacer-0 $spacer-2;
+
+    .charts-div {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-wrap: wrap;
+        padding: $spacer-3 $spacer-0;
+    }
+
+    .left-bar {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .statistcs {
+        width: 100%;
+        background-color: $color-primary;
+        color: $color-white;
+        padding: $spacer-2;
+
+        .block-content {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 800;
+            color: $color-contrasting;
+            padding-bottom: $spacer-2;
+        }
+    }
+
+    .block-head {
+        text-align: left;
+        font-size: $font-md;
+        font-weight: 500;
+        color: $color-white;
+        padding-bottom: $spacer-2;
+    }
+
+    .emp-status {
+        width: 35%;
+        background-color: $color-primary;
+        padding: $spacer-2;
+        overflow-x: auto;
+
+        &.bottom-layer {
+            margin-top: $spacer-3;
+            padding: $spacer-2;
+            max-height: 330px;
+            overflow-y: auto;
+        }
+    }
+
+    .productivity {
+        width: 35%;
+        background-color: $color-primary;
+        padding: $spacer-2;
+        overflow-x: auto;
+    }
+
+    .leave-status {
+        width: 62.5%;
+        margin-top: $spacer-3;
+        padding: $spacer-3 $spacer-6;
+        background-color: $color-primary;
+        overflow-x: auto;
+    }
+
+    .cardbase {
+        padding: $spacer-2 $spacer-1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        border-radius: 4px;
+        border-right: 10px $color-contrasting solid;
+        width: 100%;
+        margin: $spacer-1 $spacer-0;
+
+        &.leave-card {
+            padding: $spacer-2 $spacer-1;
+        }
+    }
+
+    .details {
+        color: $color-white;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .btn-req {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-0;
+        font-size: $font-sm;
+        font-weight: 600;
+        border-radius: 50px;
+        margin: $spacer-0;
+        width: 80px;
+        height: 25px;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-contrasting;
+            border: 1px solid $color-contrasting;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+    .no-request{
+        color: $color-white;
+        padding-left: $spacer-2;
+    }
+    .time {
+        font-size: $font-subheading;
+        color: $color-contrasting;
+        font-weight: 700;
+    }
+
+    .date {
+        margin-top: $spacer-2;
+        font-size: $font-md;
+        font-weight: 600;
+    }
+
+    .table-div {
+        width: 100%;
+        background-color: $color-primary;
+        margin-top: $spacer-3;
+        padding: $spacer-2 ;
+
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: $spacer-2 $spacer-2;
+
+        }
+
+        .table-head {
+            font-size: $font-subheading;
+            color: $color-white;
+            font-weight: 600;
+        }
+
+        .btn-user {
+            background-color: transparent;
+            color: $color-contrasting;
+            font-size: $font-heading;
+            padding: $spacer-0;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                transform: scale(1.2);
+                color: $color-text;
+                
+            }
+
+            &:focus {
+                border: none;
+            }
+        }
+    }
+
+}
+
+.modal {
+   z-index: 9999 !important;
+    .modal-title {
+        color: $color-primary;
+        font-size: $font-xl;
+        letter-spacing: 1px;
+        font-weight: 800;
+    }
+
+    .modal-head {
+        display: flex;
+        justify-content: space-between;
+        padding: $spacer-2;
+        padding-bottom: $spacer-0;
+    }
+
+    .modal-body {
+        padding-top: $spacer-0;
+    }
+    
+}
+
+@include tablet {
+    .dashboard-module {
+
+        .left-bar,
+        .emp-status,
+        .productivity,
+        .leave-status {
+            width: 100%;
+            margin-top: $spacer-2;
+        }
+    }
+}

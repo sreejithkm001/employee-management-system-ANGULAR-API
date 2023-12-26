@@ -1,0 +1,91 @@
+<section class="card-module">
+    <div class="align-items-center">
+        <div class="single-profile" *ngFor="let employee of employeesList">
+            <div class="image-div">
+                <img src="../../../assets/images/{{employee.image}}" class="w-100" alt="">
+            </div>
+            <div class="text-div">
+                <div class="content">
+                    <p class="name-text">{{employee.firstname | uppercase}} {{employee.lastname | uppercase}}</p>
+                    <p class="des-text">{{employee.designation}} : {{employee.empid}}</p>
+                    <div class="emp-info">
+                        <div class="each-col icon-col">
+                            <p class="icon"><fa-icon [icon]="faUser"></fa-icon></p>
+                        </div>
+                        <div class="each-col">
+                            <p>{{employee.age}} Years</p>
+                            <p>{{employee.dob}}</p>
+                            <p>{{employee.gender}}</p>
+                            <p>{{employee.bloodgroup}}</p>
+                        </div>
+                        <div class="each-col icon-col">
+                            <p class="icon"><fa-icon [icon]="faPhoneAlt"></fa-icon></p>
+                        </div>
+                        <div class="each-col">
+                            <p>{{employee.email}}</p>
+                            <p>{{employee.contact}}</p>
+                            <p>{{employee.address}}</p>
+
+                        </div>
+                        <div class="each-col icon-col">
+                            <p class="icon"><fa-icon [icon]="faGraduationCap"></fa-icon></p>
+                        </div>
+                        <div class="each-col">
+                            <p>{{employee.qualification}}</p>
+                            <p>{{employee.course}}</p>
+                            <p>{{employee.university}}</p>
+                            <p>{{employee.percentage}} %</p>
+                        </div>
+                        <div class="each-col icon-col">
+                            <p class="icon"><fa-icon [icon]="faExclamationCircle"></fa-icon></p>
+                        </div>
+                        <div class="each-col leave-col">
+                            <div *ngIf="employee.leavedetails.length==0">
+                                <p>No leave updates available</p>
+                            </div>
+                            <div *ngFor="let leave of employee.leavedetails">
+                                <p class="leave-type">{{leave.type}} Leave</p>
+                                <p>{{leave.from}} - {{leave.to}}</p>
+                                <p>{{leave.noofdays}} days</p>
+                                <p>Status : {{leave.status}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="smlinks">
+                        <a href="{{employee.fb}}" target="_blank" class="social-media"><img
+                                src="../../../assets/images/fb.png" width="12px" alt=""></a>
+                        <a href="{{employee.insta}}" target="_blank" class="social-media"><img
+                                src="../../../assets/images/instagram.png" width="12px" alt=""></a>
+                        <a href="{{employee.linkedin}}" target="_blank" class="social-media"><img
+                                src="../../../assets/images/linkedin.png" width="12px" alt=""></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="manage-emp">
+                <button class="btn btn-request" (click)="getDetails(employee)" [disabled]="!employee.leaveRequestStatus"><fa-icon [icon]="faExclamationCircle"></fa-icon></button>
+                <button class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#editEmployee"
+                    (click)="getEmpDetails(employee)"><fa-icon [icon]="faEdit"></fa-icon></button>
+                <button class="btn btn-delete" (click)="deleteEmployee(employee.id, employee.name)"><fa-icon
+                        [icon]="faTrash"></fa-icon></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="editEmployee" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title fs-5" id="exampleModalLabel">Edit Employee Profile</p>
+                <button type="button" class="btn-close  pe-5" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-create-form [editEmployee]='editEmployee'></app-create-form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,78 @@
+<section class="leeaveapp-module">
+    <div class="container">
+        <div class="leaveapp-div">
+
+            <div class="card form-card">
+                <p class="card-head">Apply for Leave</p>
+                <form class="leave-form" [formGroup]="leaveApplicationForm" (ngSubmit)="applicationSubmit()">
+                    <div class="input-div half-div">
+                        <label for="" class="form-control-label">First day of absence</label>
+                        <input type="date" class="form-control" min="{{today}}" name="startdate" formControlName="startdate" (change)="checkDate()">
+                    </div>
+                    <div class="input-div half-div">
+                        <label for="" class="form-control-label">Last day of absence</label>
+                        <input type="date" class="form-control" min="{{enddateMin}}" name="enddate" formControlName="enddate" (change)="checkDate()">
+                    </div>
+
+                    <div class="input-div">
+                        <div class="text-center">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="daylength" id="fullday"  formControlName="daylength"
+                                    value="fullday">
+                                <label class="form-check-label" for="fullday">Full Day</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="daylength" id="halfday"  formControlName="daylength"
+                                    value="halfday">
+                                <label class="form-check-label" for="halfday">Half Day</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-div">
+                        <label for="" class="form-control-label">Type of absence request</label>
+                        <select class="form-select form-control" name="leavetype" formControlName="leavetype"
+                            id="leavetype">
+                            <option value="select"[disabled]="true">-- Select --</option>
+                            <option value="Sick">Sick Leave</option>
+                            <option value="Casual">Casual Leave</option>
+                            <option value="Emergency">Emergency Leave</option>
+                        </select>
+                    </div>
+                    <div class="input-div">
+                        <label for="" class="form-control-label">Reason</label>
+                        <input type="text" class="form-control" name="reason" formControlName="reason">
+
+                    </div>
+                    <div class="btn-div">
+                        <button class="btn btn-apply" (click)="resetForm()">Reset</button>
+                        <button class="btn btn-apply">Apply</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="history-div">
+                <p class="heading">Leave History</p>
+                <div class="no-leave" *ngIf="userInfo.length==0">
+                    <p>No leave records found!</p>
+                </div>
+                <div class="leave-card" *ngFor="let leave of userInfo">
+                    <div class="symbol">
+                        <fa-icon *ngIf="leave.status=='Approved'" [icon]="faCheckCircle" style="color:green"></fa-icon>
+                        <fa-icon *ngIf="leave.status=='Rejected'" [icon]="faExclamationCircle" style="color:red"></fa-icon>
+                        <fa-icon *ngIf="leave.status=='Pending'" [icon]="faQuestionCircle" style="color:blue"></fa-icon>
+
+                    </div>
+                    <div class="info">
+                        <p>{{leave.from}} - {{leave.to}}</p>
+                        <p>{{leave.noofdays}} days</p>
+                        <p><strong>Status : {{leave.status}}</strong></p>
+                    </div>
+                    <div class="type">
+                        <p>{{leave.type}}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

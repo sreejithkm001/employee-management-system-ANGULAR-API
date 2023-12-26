@@ -1,0 +1,310 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.card-module {
+    padding: $spacer-4 $spacer-0;
+
+    .single-profile {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: $spacer-3;
+
+        &:nth-of-type(even) {
+            flex-direction: row-reverse;
+
+            .text-div {
+                margin-right: -30px;
+            }
+            .manage-emp{
+                left: 50px;
+            }
+        }
+
+
+        .image-div {
+            width: 250px;
+        }
+
+
+        .text-div {
+            background-color: $color-white;
+            position: relative;
+            width: calc(100% - 230px);
+            height: 230px;
+            margin-left: -30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            p {
+                padding-bottom: $spacer-md;
+            }
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 200px;
+                background-color: $color-contrasting;
+                transform: rotate(32deg);
+                
+            }
+            &:hover::before{
+                animation: rotateborder 5s linear infinite;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                background-color: $color-white;
+                inset: 2px;
+            }
+        }
+        .content{
+            z-index: 10;
+            width: 95%;
+            text-align: center;
+            color: $color-primary;
+        }
+        .name-text {
+            font-size: $font-xl;
+            font-weight: 700;
+        }
+
+        .des-text {
+            font-size: $font-md;
+            color: $color-bg;
+        }
+
+        .emp-info {
+            text-align: left;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .each-col {
+            padding: $spacer-1;
+        }
+        .leave-col{
+            max-height: 130px;
+            height: 100%;
+            overflow-y: auto;
+            .leave-type{
+                margin-top: 8px;
+                font-weight: 700;
+            }
+        }
+        .icon {
+            color: $color-blue;
+            font-size: $font-sm;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+
+        .social-media {
+            opacity: 0.5;
+            padding: $spacer-0 $spacer-1;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .manage-emp {
+            position: absolute;
+            right: 50px;
+            bottom: 0;
+
+        }
+
+        .btn {
+            opacity: 0.5;
+            font-size: $font-sm;
+
+            &:hover {
+                opacity: 1;
+            }
+            &:focus{
+                border: none;
+            }
+
+            &:disabled{
+                display: none;
+            }
+        }
+
+        .btn-edit {
+            color: $color-blue;
+        }
+
+        .btn-delete {
+            color: red;
+        }
+        .btn-request{
+            color: $color-text;
+        }
+    }
+}
+
+.modal {
+    color: $color-primary;
+
+    .modal-title {
+        font-size: $font-xl;
+        font-weight: 600;
+    }
+
+    .edit-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .input-div {
+            width: 30%;
+
+        }
+
+        .half-div {
+            width: 47%;
+        }
+    }
+
+    .form-control {
+        font-size: $font-sm;
+        border: 1px solid $color-blue;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .btn {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-md $spacer-2;
+        border-radius: 25px;
+        margin-left: $spacer-2;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-contrasting;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+
+    .profilepic-upload {
+        background-color: $color-white;
+        color: #0000;
+    }
+
+    .profile-div {
+        position: relative;
+
+        .file-name {
+            color: $color-primary;
+            position: absolute;
+            left: 110px;
+            top: 42px;
+        }
+    }
+
+    .btn-div {
+        width: 100%;
+        padding: $spacer-2 $spacer-0;
+        text-align: right;
+    }
+    .modal-title {
+        color: $color-primary;
+        font-size: $font-xl;
+        letter-spacing: 1px;
+        font-weight: 800;
+    }
+
+    .modal-head {
+        display: flex;
+        justify-content: space-between;
+        padding: $spacer-2;
+        padding-bottom: $spacer-0;
+    }
+
+    .modal-body {
+        padding-top: $spacer-0;
+    }
+}
+
+
+@keyframes rotateborder {
+    0%{
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@include tablet{
+    .card-module{
+        .single-profile{
+            flex-direction: column;
+
+            &:nth-of-type(even) {
+                flex-direction: column;
+    
+                .text-div {
+                    margin-right: 0px;
+                }
+                .manage-emp{
+                    left: 0px;
+                }
+            }
+            .emp-info{
+                flex-wrap: wrap;
+            }
+            .each-col{
+                width: 35%;
+
+                &.icon-col{
+                    width: 15%;
+                }
+            }
+            .text-div{
+                width: 100%;
+                margin-left: 0px;
+                height: 100%;
+                padding: $spacer-1 $spacer-0;
+                margin-top: $spacer-2;
+                &::before{
+                    transform: rotate(35deg);
+                }
+            }
+            .manage-emp{
+                bottom: -20px;
+            }
+        }
+        
+    }
+}
+
+@include mobile{
+    .card-module{
+        .single-profile{
+            .text-div{
+                width: 100%;
+                height: 100%;
+            }
+            .each-col{
+                width: 80%;
+                margin: auto;
+                &.icon-col{
+                    width: 15%;
+                }
+            }
+        }
+    }
+}

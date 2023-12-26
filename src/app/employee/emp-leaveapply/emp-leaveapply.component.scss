@@ -1,0 +1,174 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.leeaveapp-module {
+
+    .container {
+
+        background-color: $color-white;
+    }
+
+    .leaveapp-div {
+        background-color: $color-white;
+        padding: $spacer-3 $spacer-0;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .form-card {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        width: 60%;
+        padding: $spacer-2 $spacer-4;
+    }
+
+    .card-head {
+        padding: $spacer-1;
+        text-align: center;
+        background-color: $color-primary;
+        color: $color-contrasting;
+        width: 100%;
+        font-size: $font-xl;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: $spacer-3 $spacer-0;
+    }
+
+    .leave-form {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+
+    }
+
+    .date-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        margin: auto;
+    }
+
+    .input-div {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: $spacer-1 $spacer-0;
+
+        &.half-div {
+            width: 45%;
+        }
+    }
+
+    .form-control {
+        font-size: $font-sm;
+        color: $color-primary;
+        border: 1px solid red;
+
+        &.ng-untouched,
+        &.ng-valid {
+            border-color: $color-blue;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .form-control-label {
+        font-size: $font-md;
+        padding-bottom: $spacer-md;
+        position: relative;
+
+        &::after {
+            content: '*';
+            position: absolute;
+            color: red;
+        }
+    }
+
+    .btn-div {
+        padding: $spacer-2 $spacer-0;
+    }
+
+    .btn-apply {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-md $spacer-3;
+        border-radius: 25px;
+        margin: $spacer-0 $spacer-1;
+
+        &:hover {
+            background-color: $color-primary;
+            color: $color-contrasting;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+
+    .history-div {
+        width: 32%;
+        padding: $spacer-2;
+        overflow-y: auto;
+        max-height: 470px;
+    }
+
+    .no-leave {
+        font-size: $font-md;
+        font-style: italic;
+        font-weight: 600;
+        text-align: center;
+        color: $color-text;
+    }
+
+    .heading {
+        padding: $spacer-1;
+        text-align: center;
+        color: $color-primary;
+        width: 100%;
+        font-size: $font-xl;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: $spacer-2;
+    }
+
+    .leave-card {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: $spacer-2 $spacer-1;
+        margin-top: $spacer-3;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+        .symbol {
+            font-size: $font-md;
+        }
+
+        .type {
+            color: $color-text;
+            font-weight: 700;
+        }
+    }
+}
+
+@include tablet {
+    .leeaveapp-module {
+        .leaveapp-div {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-card {
+            width: 100%;
+        }
+
+        .history-div {
+            width: 80%;
+        }
+    }
+}

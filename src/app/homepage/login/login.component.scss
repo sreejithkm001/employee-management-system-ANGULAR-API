@@ -1,0 +1,117 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.login-module {
+    .login-form {
+        width: 60%;
+    }
+
+    .input-div {
+        padding: $spacer-1 $spacer-0;
+        height: 65px;
+    }
+
+    .form-control {
+        background-color: transparent;
+        color: $color-lightblue;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid $color-lightblue;
+        font-size: $font-sm;
+        letter-spacing: 1px;
+
+        &::placeholder {
+            color: $color-lightblue;
+            letter-spacing: 1px;
+        }
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    .password-div {
+        position: relative;
+
+        .icon-password {
+            cursor: pointer;
+            position: absolute;
+            right: 15px;
+            top: 20px;
+            font-size: $font-xsm;
+        }
+    }
+
+    .btn-div {
+        padding-top: $spacer-2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-login {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-md $spacer-3;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        width: 150px;
+        &:hover .btn-icon {
+            animation: rotateicon 1s ease-in-out;
+        }
+    }
+
+    .forgot-password {
+        font-size: $font-sm;
+        padding-top: $spacer-2;
+        color: $color-contrasting;
+    }
+    .warning-message{
+        color: $color-warning;
+        font-size: $font-xsm;
+    }
+    .btn {
+        position: relative;
+        display: inline-block;
+        color: rgb(4, 4, 4);
+        border: 2px solid yellow;
+        padding: 10px 30px;
+        z-index: 1;
+        overflow: hidden;
+        transition: color 1s, box-shadow 1s;
+    }
+    .btn:hover {
+        transition-delay: 0s;
+        color: #000000;
+        box-shadow:
+            0 0 10px yellow,
+            0 0 20px yellow,
+            0 0 40px yellow,
+           
+    }
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50px;
+        width: 0;
+        height: 100%;
+        background: rgb(0, 0, 0);
+        transform: skewX(35deg);
+        z-index: -1;
+        transition: 1s;
+    }
+    a:hover:before {
+        width: 100%;
+    }
+}
+
+@include tablet{
+    .login-module{
+        .login-form{
+            width: 80%;
+        }
+    }
+}

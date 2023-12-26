@@ -1,0 +1,66 @@
+<section class="dashboard-module">
+    <div class="container">
+        <div class="charts-div">
+            <div class="left-bar">
+                <div class="statistcs">
+                    <div class="cardbase">
+                        <div class="time">{{timeElement}}</div>
+                        <div class="date">{{dateElement}}</div>
+                      </div>
+                </div>
+                <div class="statistcs">
+                    <p class="block-head">Total Employees</p>
+                    <p class="block-content">{{counter}}+</p>
+                </div>
+            </div>
+            
+            <div class="emp-status">
+                <app-d3-doughnut></app-d3-doughnut>
+            </div>
+            <div class="productivity">
+                <app-gauge-chart></app-gauge-chart> 
+            </div>
+            
+            <div class="leave-status">
+                <app-bar-chart></app-bar-chart>
+            </div>
+            <div class="emp-status bottom-layer">
+                <p class="block-head">Leave Requests</p>
+                <div class="cardbase" *ngIf="pendingRequests.length==0">
+                    <div class="no-request">
+                        <p>No available leave requests</p>
+                    </div>
+                </div>
+                <div class="cardbase leave-card" *ngFor="let req of pendingRequests">
+                    <div class="details">
+                        <p>Employee id : {{req.employeeid}} - {{req.type}}</p>
+                        <button class="btn btn-req" (click)="getDetails(req)">Details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-div">
+                <div class="heading">
+                <p class="table-head">Employee List</p>
+                <button class="btn btn-user" data-bs-toggle="modal" data-bs-target="#editEmployee"><fa-icon [icon]="faUserPlus"></fa-icon></button>
+                </div>
+                <app-emp-table></app-emp-table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="editEmployee" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title fs-5" id="exampleModalLabel">Create Employee Profile</p>
+                <button type="button" class="btn-close pe-5" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <app-create-form></app-create-form>
+            </div>
+        </div>
+    </div>
+</div>

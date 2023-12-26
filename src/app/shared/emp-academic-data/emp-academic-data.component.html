@@ -1,0 +1,37 @@
+<div class="content-div">
+    <div class="label-div">
+        <p>Academic Information</p>
+    </div>
+    <div class="academic-info" id="academic">
+        <button class="btn btn-edit" (click)="editForm()">Edit <fa-icon class="edit-icon"
+                [icon]="faEdit"></fa-icon></button>
+        <!-- REACTIVE FORMS USED -->
+        <form class="academic-form" [formGroup]="academicDataForm" (ngSubmit)="saveDetails()">
+            <div class="input-div">
+                <label for="qualification" class="form-control-label">Educational Qualification</label>
+                <input type="text" pattern="^[a-zA-Z\s\.]*$" class="form-control" name="qualification"
+                    formControlName="qualification" id="qualification">
+            </div>
+            <div class="input-div">
+                <label for="course" class="form-control-label">Course / Subject</label>
+                <input type="text" pattern="^[a-zA-Z\s\.]*$" class="form-control" name="course" formControlName="course"
+                    id="course">
+            </div>
+            <div class="input-div">
+                <label for="university" class="form-control-label">University</label>
+                <input type="text" pattern="^[a-zA-Z\s\.]*$" class="form-control" name="university"
+                    formControlName="university" id="university">
+            </div>
+            <div class="input-div">
+                <label for="percentage" class="form-control-label">Percentage</label>
+                <input type="text" pattern="^[0-9]{2}$" name="percentage" formControlName="percentage"
+                    class="form-control" id="percentage">
+            </div>
+            <div id="btnacademic" class="btn-div">
+                <button class="btn btn-submit">Submit</button>
+                <button class="btn btn-submit" (click)="cancel()">Cancel</button>
+            </div>
+        </form>
+
+    </div>
+</div>

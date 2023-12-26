@@ -1,0 +1,81 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.empfooter-module{
+    background-color: $color-primary;
+    letter-spacing: 1px;
+
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spacer-4 $spacer-0;
+        color: $color-white;
+    }
+    .logo-div{
+        width: calc(100% / 3);
+    }
+    .company-name{
+        font-size: $font-xsm;
+        padding-top: $spacer-1;
+        opacity: 0.5;
+    }
+    .links{
+        padding-top: $spacer-1;
+    }
+    .page-links{
+        color: $color-white;
+        text-decoration: none;
+        padding-right: $spacer-1;
+        display: inline-block;
+        font-size: $font-xsm;
+
+        &.right-border{
+            border-right: 1px solid $color-contrasting;
+        }
+        
+        &.left-padd{
+            padding-left: $spacer-1;
+        }
+    }
+    .contact-div{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: $font-sm;
+        width: calc(100% / 3);
+    }
+    .icons{
+        padding-bottom: $spacer-1;
+        padding-right: $spacer-2;
+        color: $color-contrasting;
+    }
+    .info{
+        padding-bottom: $spacer-1;
+    }
+    .about-div{
+        width: calc(100% / 3);
+    }
+    .about-head{
+        font-size: $font-sm;
+        font-weight: 600;
+        padding-bottom: $spacer-1;
+    }
+    .about-content{
+        font-size: $font-xsm;
+        font-weight: 400;
+        opacity: 0.5;
+    }
+}
+
+@include mobile{
+    .empfooter-module{
+        .footer{
+            flex-direction: column;
+        }
+        .about-div, .contact-div, .logo-div{
+            width: 100%;
+        }
+    }
+}

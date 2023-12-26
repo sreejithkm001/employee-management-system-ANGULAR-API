@@ -1,0 +1,113 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+@import '../../../assets/scss/base';
+
+.createform-module{
+    .create-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: $spacer-4 $spacer-6;
+        width: 90%;
+        margin: auto;
+        background-color: $color-white;
+        
+    
+        .input-div {
+            width: 30%;
+            height: 90px;
+        }
+    
+        .half-div {
+            width: 48%;
+        }
+    }
+    .profilepic-upload{
+        background-color: $color-white;
+        color: #0000;
+    }
+    .profile-div{
+        position: relative;
+        .file-name{
+            position: absolute;
+            top: 40px;
+            left: 110px;
+        }
+    }
+    .modal-form{
+        box-shadow: none;
+        width: 100%;
+        padding: $spacer-0;
+    }
+    .section-heading{
+        padding: $spacer-1;
+        text-align: center;
+        background-color: $color-primary;
+        color: $color-contrasting;
+        width: 100%;
+        font-size: $font-xl;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: $spacer-3 $spacer-0;
+    }
+    .form-control {
+        font-size: $font-sm;
+        border:  1px solid red;
+    
+        &:focus {
+            box-shadow: none;
+        }
+        &.ng-valid, &.ng-untouched{
+            border: 1px solid $color-blue;
+        }
+        &:disabled{
+            border: none;
+        }
+    }
+    
+    .col-form-label{
+        &::after{
+            content: '*';
+            color: red;
+        }
+    }
+    .btn {
+        background-color: $color-contrasting;
+        color: $color-primary;
+        padding: $spacer-md $spacer-2;
+        border-radius: 50px;
+        margin-left: $spacer-2;
+        width: 150px;
+    
+        &:hover {
+            background-color: $color-primary;
+            color: $color-contrasting;
+            box-shadow: rgba(0, 0, 0, 0.74) 0px 3px 2px;
+        }
+    }
+    
+    
+    .btn-div {
+        width: 100%;
+        padding: $spacer-4 $spacer-0;
+        text-align: center;
+    }
+}
+
+@include tablet{
+    .createform-module{
+        .create-form{
+            width: 100%;
+        }
+    }
+}
+
+@include mobile{
+    .createform-module{
+        .create-form{
+            .input-div{
+                width: 100%;
+            }
+        }
+    }
+}

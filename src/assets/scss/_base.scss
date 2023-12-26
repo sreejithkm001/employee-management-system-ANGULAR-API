@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 28px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+@keyframes rotateicon {
+    0% {
+        rotate: 30deg;
+    }
+
+    20% {
+        rotate: -30deg;
+    }
+
+    40% {
+        rotate: 15deg;
+    }
+
+    60% {
+        rotate: -15deg;
+    }
+
+    80% {
+        rotate: 5deg;
+    }
+
+    90% {
+        rotate: -5deg;
+    }
+
+    100% {
+        rotate: 0deg;
+    }
+}
